@@ -104,11 +104,11 @@ public class Category {
         return em;
     }
 
-	public static long countCategorys() {
+	public static long countCategories() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Category o", Long.class).getSingleResult();
     }
 
-	public static List<Category> findAllCategorys() {
+	public static List<Category> findAllCategories() {
         return entityManager().createQuery("SELECT o FROM Category o", Category.class).getResultList();
     }
 

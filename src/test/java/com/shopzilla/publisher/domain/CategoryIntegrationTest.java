@@ -24,9 +24,9 @@ public class CategoryIntegrationTest {
     private CategoryDataOnDemand dod;
 
 	@Test
-    public void testCountCategorys() {
+    public void testCountCategories() {
         org.junit.Assert.assertNotNull("Data on demand for 'Category' failed to initialize correctly", dod.getRandomCategory());
-        long count = com.shopzilla.publisher.domain.Category.countCategorys();
+        long count = com.shopzilla.publisher.domain.Category.countCategories();
         org.junit.Assert.assertTrue("Counter for 'Category' incorrectly reported there were no entries", count > 0);
     }
 
@@ -42,11 +42,11 @@ public class CategoryIntegrationTest {
     }
 
 	@Test
-    public void testFindAllCategorys() {
+    public void testFindAllCategories() {
         org.junit.Assert.assertNotNull("Data on demand for 'Category' failed to initialize correctly", dod.getRandomCategory());
-        long count = com.shopzilla.publisher.domain.Category.countCategorys();
+        long count = com.shopzilla.publisher.domain.Category.countCategories();
         org.junit.Assert.assertTrue("Too expensive to perform a find all test for 'Category', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
-        java.util.List<com.shopzilla.publisher.domain.Category> result = com.shopzilla.publisher.domain.Category.findAllCategorys();
+        java.util.List<com.shopzilla.publisher.domain.Category> result = com.shopzilla.publisher.domain.Category.findAllCategories();
         org.junit.Assert.assertNotNull("Find all method for 'Category' illegally returned null", result);
         org.junit.Assert.assertTrue("Find all method for 'Category' failed to return any data", result.size() > 0);
     }
@@ -54,7 +54,7 @@ public class CategoryIntegrationTest {
 	@Test
     public void testFindCategoryEntries() {
         org.junit.Assert.assertNotNull("Data on demand for 'Category' failed to initialize correctly", dod.getRandomCategory());
-        long count = com.shopzilla.publisher.domain.Category.countCategorys();
+        long count = com.shopzilla.publisher.domain.Category.countCategories();
         if (count > 20) count = 20;
         java.util.List<com.shopzilla.publisher.domain.Category> result = com.shopzilla.publisher.domain.Category.findCategoryEntries(0, (int) count);
         org.junit.Assert.assertNotNull("Find entries method for 'Category' illegally returned null", result);

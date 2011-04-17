@@ -2,8 +2,8 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_shopzilla_publisher_domain_Category" items="${categorys}" z="96hBiL8KzR/gXMofeDnd61U+/nc=">
-        <table:table data="${categorys}" id="l_com_shopzilla_publisher_domain_Category" path="/categorys" typeIdFieldName="_id" z="lZ1ajdtOymE0qD961AbU+McI4V0=">
+    <page:list id="pl_com_shopzilla_publisher_domain_Category" items="${categories}" z="96hBiL8KzR/gXMofeDnd61U+/nc=">
+        <table:table data="${categories}" id="l_com_shopzilla_publisher_domain_Category" path="/categories" typeIdFieldName="_id" z="lZ1ajdtOymE0qD961AbU+McI4V0=">
             <table:column id="c_com_shopzilla_publisher_domain_Category_id" property="id" z="7eBkLo5umRNtZ1CPGmLHTUOHl50="/>
             <table:column id="c_com_shopzilla_publisher_domain_Category_title" property="title" z="W/p3TbHxR2cWyV4OJUZZCk1R/48="/>
         </table:table>

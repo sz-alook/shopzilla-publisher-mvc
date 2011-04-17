@@ -2,7 +2,7 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_shopzilla_publisher_domain_Category" idField="_id" modelAttribute="category" path="/categorys" versionField="Version" z="TuVR/uIcyxkvm+mT3GPuHQ7m3FI=">
+    <form:update id="fu_com_shopzilla_publisher_domain_Category" idField="_id" modelAttribute="category" path="/categories" versionField="Version" z="TuVR/uIcyxkvm+mT3GPuHQ7m3FI=">
         <field:input field="id" id="c_com_shopzilla_publisher_domain_Category_id" validationMessageCode="field_invalid_integer" z="Wx4lcTPPyR02pZlyRmjFqGdLego="/>
         <field:input field="title" id="c_com_shopzilla_publisher_domain_Category_title" z="K+9Wa/uU1STKYnIU+8J/SmRKwPc="/>
     </form:update>
