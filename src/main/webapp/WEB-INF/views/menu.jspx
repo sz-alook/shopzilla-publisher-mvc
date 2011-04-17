@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8"/>
+	<jsp:output omit-xml-declaration="yes"/>
+
+<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_category" z="kY676wLbZKc59UbcUGM8ogjOGOc=">
+            <menu:item id="i_category_new" messageCode="global_menu_new" url="/categorys?form" z="Xqz6msHtFFIlT4/UwJALJOYTD1I="/>
+        <menu:item id="i_category_list" messageCode="global_menu_list" url="/categorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6D9be6DQ6UCnl0O7TDbbrkOhNIE="/>
+        </menu:category>
+    </menu:menu>
+</div>

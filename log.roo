@@ -1,0 +1,17 @@
+// Spring Roo 1.1.3.RELEASE [rev 4404ffb] log opened at 2011-04-16 17:29:04
+project --topLevelPackage com.shopzilla.publisher --projectName shopzilla-publisher-mvc --java 6
+// Spring Roo 1.1.3.RELEASE [rev 4404ffb] log closed at 2011-04-16 17:29:05
+// Spring Roo 1.1.3.RELEASE [rev 4404ffb] log opened at 2011-04-16 17:29:12
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+
+entity --class ~.domain.Category
+
+field number --type java.lang.Long --fieldName id
+
+field string --fieldName title
+
+web mvc setup
+test integration --entity ~.domain.Category
+
+controller all --package ~.web
+

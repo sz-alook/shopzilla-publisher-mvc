@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_shopzilla_publisher_domain_Category" object="${category}" path="/categorys" z="J22FBjf14qCY5AjN4yOUegUGtfo=">
+        <field:display field="id" id="s_com_shopzilla_publisher_domain_Category_id" object="${category}" z="C+TVaol2Y7wjJBnKv/jgpsu1Sg8="/>
+        <field:display field="title" id="s_com_shopzilla_publisher_domain_Category_title" object="${category}" z="qGZ3Y+NW3VB1u6NFMejw2MxArJY="/>
+    </page:show>
+</div>
