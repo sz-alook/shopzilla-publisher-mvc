@@ -31,8 +31,7 @@ import org.springframework.web.servlet.view.mustache.MustacheViewResolver;
  */
 @ContextConfiguration(locations = {
                         "classpath:META-INF/spring/applicationContext.xml",
-                        "classpath*:/WEB-INF/spring/webmvc-config.xml"}
-)
+                        "classpath*:/WEB-INF/spring/webmvc-config.xml"})
 public class MustacheViewResolverIntegrationTest {
     private static final Log LOG = LogFactory.getLog(MustacheViewResolverIntegrationTest.class);
 

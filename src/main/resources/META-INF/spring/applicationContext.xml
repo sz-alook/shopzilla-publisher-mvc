@@ -54,12 +54,17 @@
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
     </bean>
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
-    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-        <property name="dataSource" ref="dataSource"/>
+    <!--<bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">-->
+        <!--&lt;!&ndash;<property name="entityManagerFactory" ref="entityManagerFactory"/>&ndash;&gt;-->
+    <!--</bean>-->
+    <tx:annotation-driven />
+    <!--<tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>-->
+    <!--<bean class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" id="entityManagerFactory">-->
+    <!--</bean>-->
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+            <property name="validator" ref="validator" />
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.mustache.MustacheViewResolver">
