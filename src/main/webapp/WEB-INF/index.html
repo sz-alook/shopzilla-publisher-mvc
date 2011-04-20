@@ -4,12 +4,21 @@
 </head>
 <body>
     <h1>Shopzilla Publisher Webapp</h1>
+    <!--<div>-->
+        <!--<form action="categories/show" method="get">-->
+            <!--<label>CategoryId:</label>-->
+            <!--<input type="text" name="id" />-->
+            <!--<input type="submit" />-->
+        <!--</form>-->
+    <!--</div>-->
     <div>
-        <form action="categories/show" method="get">
-            <label>CategoryId:</label>
-            <input type="text" name="id" />
-            <input type="submit" />
-        </form>
+        <ol>
+            {{#categories}}
+            <li>
+                <a href="categories/{{id}}">{{name}}</a>
+            </li>
+            {{/categories}}
+        </ol>
     </div>
 </body>
 </html>

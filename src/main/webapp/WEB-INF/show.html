@@ -7,9 +7,19 @@
 <body>
 <h2>{{itemId}}</h2>
 
+<ul>
 {{#offers}}
-    <p>{{id}}</p>
+    <li>
+        <img src="http://image01.bizrate-images.com/resize?sq=80&uid={{id}}" />
+
+        <p>{{id}}</p>
+        <b>{{title}}</b>
+        <p>{{description}}</p>
+
+    </li>
 {{/offers}}
+</ul>
+
 <hr>
 {{#products}}
     <p>{{id}}</p>

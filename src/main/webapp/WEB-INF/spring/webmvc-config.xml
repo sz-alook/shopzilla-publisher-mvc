@@ -13,9 +13,28 @@
     <!--</context:component-scan>-->
 
     <bean id="categoryController" class="com.shopzilla.publisher.web.CategoryController">
+        <property name="categorySearchService" ref="categorySearchService"/>
+    </bean>
+
+    <bean id="categorySearchService" class="com.shopzilla.publisher.service.CategorySearchService">
         <property name="credentialFactory" ref="publisherCredentialFactory"/>
         <!-- references 'productClient' from 'client' module, imported from applicationContext-client.xml -->
         <property name="restCatalogAPIClient" ref="restCatalogAPIClient"/>
+    </bean>
+
+    <bean id="homeController" class="com.shopzilla.publisher.web.HomeController">
+        <property name="categoryProviderService" ref="categoryProviderService"/>
+    </bean>
+    <bean id="categoryProviderService" class="com.shopzilla.publisher.service.InMemoryCategoryProviderServiceImpl">
+        <property name="categoryList">
+            <list>
+                <bean class="com.shopzilla.api.client.model.Category">
+                    <property name="id" value="10110000" />
+                    <property name="name" value="Women's shoes" />
+                    <property name="URL" value="" />
+                </bean>
+            </list>
+        </property>
     </bean>
 
     <bean id="restCatalogAPIClient" class="com.shopzilla.api.client.http.RestCatalogAPIClient">
@@ -24,6 +43,7 @@
 
     <!-- Fetch the PUBLISHER_ID and PUBLISHER_API_KEY environment variables -->
     <bean id="publisherCredentialFactory" class="com.shopzilla.api.client.helper.CredentialFactory" />
+
 
     <bean class="com.shopzilla.publisher.web.ApplicationConversionServiceFactoryBean"
           id="applicationConversionService"/>
@@ -45,7 +65,7 @@
 	</mvc:interceptors>
 
     <!-- selects a static view for rendering without the need for an explicit controller -->
-    <mvc:view-controller path="/" view-name="index"/>
+    <!--<mvc:view-controller path="/" view-name="index"/>-->
 	<mvc:view-controller path="/uncaughtException"/>
 	<mvc:view-controller path="/resourceNotFound"/>
 	<mvc:view-controller path="/dataAccessFailure"/>
@@ -90,22 +110,5 @@
             <bean class="org.springframework.web.servlet.view.mustache.MustacheTemplateLoader" />
         </property>
     </bean>
-
-    <!--<bean id="templateLoader" class="org.springframework.web.servlet.view.mustache.MustacheTemplateLoader" />-->
-
-    <!-- allows for integration of file upload functionality -->
-    <!--<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>-->
-    <!--<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">-->
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>-->
-    <!--</bean>-->
-    <!--<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">-->
-        <!--<property name="definitions">-->
-            <!--<list>-->
-                <!--<value>/WEB-INF/layouts/layouts.xml</value>-->
-                <!--&lt;!&ndash; Scan views directory for Tiles configurations &ndash;&gt;-->
-                <!--<value>/WEB-INF/views/**/views.xml</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
 
 </beans>
