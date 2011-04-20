@@ -62,5 +62,14 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.mustache.MustacheViewResolver">
+        <!--<property name="cache" value="${TEMPLATE_CACHE_ENABLED}" />-->
+        <property name="cache" value="false" />
+        <property name="prefix" value="classpath*:WEB-INF/" />
+        <property name="suffix" value=".html" />
+        <property name="templateLoader">
+            <bean class="org.springframework.web.servlet.view.mustache.MustacheTemplateLoader" />
+        </property>
+    </bean>
 
 </beans>

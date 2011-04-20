@@ -15,7 +15,11 @@
     <bean id="categoryController" class="com.shopzilla.publisher.web.CategoryController">
         <property name="credentialFactory" ref="publisherCredentialFactory"/>
         <!-- references 'productClient' from 'client' module, imported from applicationContext-client.xml -->
-        <property name="productClient" ref="productClient"/>
+        <property name="restCatalogAPIClient" ref="restCatalogAPIClient"/>
+    </bean>
+
+    <bean id="restCatalogAPIClient" class="com.shopzilla.api.client.http.RestCatalogAPIClient">
+        <property name="restTemplate" ref="restTemplate"/>
     </bean>
 
     <!-- Fetch the PUBLISHER_ID and PUBLISHER_API_KEY environment variables -->
@@ -77,19 +81,31 @@
 		</property>
 	</bean>
 
-    <!-- allows for integration of file upload functionality -->
-    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
-    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
-    </bean>
-    <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/layouts/layouts.xml</value>
-                <!-- Scan views directory for Tiles configurations -->
-                <value>/WEB-INF/views/**/views.xml</value>
-            </list>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.mustache.MustacheViewResolver">
+        <!--<property name="cache" value="${TEMPLATE_CACHE_ENABLED}" />-->
+        <property name="cache" value="false" />
+        <property name="prefix" value="/WEB-INF/" />
+        <property name="suffix" value=".html" />
+        <property name="templateLoader">
+            <bean class="org.springframework.web.servlet.view.mustache.MustacheTemplateLoader" />
         </property>
     </bean>
+
+    <!--<bean id="templateLoader" class="org.springframework.web.servlet.view.mustache.MustacheTemplateLoader" />-->
+
+    <!-- allows for integration of file upload functionality -->
+    <!--<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>-->
+    <!--<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>-->
+    <!--</bean>-->
+    <!--<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">-->
+        <!--<property name="definitions">-->
+            <!--<list>-->
+                <!--<value>/WEB-INF/layouts/layouts.xml</value>-->
+                <!--&lt;!&ndash; Scan views directory for Tiles configurations &ndash;&gt;-->
+                <!--<value>/WEB-INF/views/**/views.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>
